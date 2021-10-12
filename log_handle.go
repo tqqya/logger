@@ -161,7 +161,7 @@ func (f *FileLogger) splitFile(file *os.File) (*os.File, error) {
 // 同步写入
 func (f *FileLogger) log(lv LogLevel, format string, a ...interface{}) {
 	if f.enable(lv) {
-		funcName, fileName, lineNo := getInfo(3)
+		funcName, fileName, lineNo := getInfo(4)
 
 		if f.checkSize(f.fileObj) {
 			newFile, err := f.splitFile(f.fileObj)
@@ -185,7 +185,7 @@ func (f *FileLogger) log(lv LogLevel, format string, a ...interface{}) {
 // 写入logChan
 func (f *FileLogger) logAsync(lv LogLevel, format string, a ...interface{}) {
 	if f.enable(lv) {
-		funcName, fileName, lineNo := getInfo(3)
+		funcName, fileName, lineNo := getInfo(4)
 
 		//先把日志发送到logChan中,用select可以防止通道满了之后阻塞
 		select {
