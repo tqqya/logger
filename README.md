@@ -5,7 +5,7 @@ my file logger system.
 package main
 
 import (
-	"github.com/z406497819/logger"
+	"github.com/tqqya/logger"
 )
 
 func main() {
